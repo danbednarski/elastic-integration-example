@@ -1,13 +1,14 @@
 format_version: 3.4.0
 name: vipre
 title: "VIPRE Endpoint Protection"
-version: 0.0.1
+version: 0.1.3
 source:
   license: "Elastic-2.0"
-description: "Ingest VIPRE API data to Elastic"
+description: "Ingest VIPRE API data and anime threat intelligence to Elastic"
 type: integration
 categories:
   - custom
+  - security
 conditions:
   kibana:
     version: "^8.12.2"
@@ -31,6 +32,32 @@ policy_templates:
       - type: logfile
         title: Collect sample logs from instances
         description: Collecting sample logs
+  - name: pokemon_detections
+    title: Anime Security Detections
+    description: Generate anime quote-based security detection rules
+    inputs:
+      - type: cel
+        title: Anime Quote Threat Intelligence
+        description: Fetch anime quotes and create security detections using CEL
+        vars:
+          - name: interval
+            type: text
+            title: Check Interval
+            default: "60s"
+            description: How often to check for anime threats
+            required: true
+          - name: api_timeout
+            type: text
+            title: API Timeout
+            default: "30s"
+            description: Timeout for anime API requests
+            required: true
+          - name: api_url
+            type: text
+            title: API URL
+            default: "https://api.animechan.io/v1/quotes/random"
+            description: Anime quotes API endpoint
+            required: true
 owner:
   github: danbednarski
   type: elastic

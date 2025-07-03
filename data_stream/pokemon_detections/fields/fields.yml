@@ -1,0 +1,104 @@
+- name: data_stream.type
+  type: constant_keyword
+  description: Data stream type
+  value: logs
+- name: data_stream.dataset
+  type: constant_keyword
+  description: Data stream dataset
+  value: so-detection
+- name: data_stream.namespace
+  type: constant_keyword
+  description: Data stream namespace
+  value: default
+- name: '@timestamp'
+  type: date
+  description: Event timestamp
+- name: so_kind
+  type: keyword
+  description: Security Onion document kind
+- name: so_operation
+  type: keyword
+  description: Security Onion operation type
+- name: so_audit_doc_id
+  type: keyword
+  description: Security Onion audit document ID
+- name: so_detection
+  type: group
+  description: Security Onion detection data
+  fields:
+    - name: publicId
+      type: keyword
+      description: Public detection ID
+    - name: title
+      type: keyword
+      description: Detection rule title
+    - name: description
+      type: text
+      description: Detection rule description
+    - name: content
+      type: text
+      description: Detection rule content
+    - name: severity
+      type: keyword
+      description: Detection severity level
+    - name: engine
+      type: keyword
+      description: Detection engine
+    - name: category
+      type: keyword
+      description: Detection category
+    - name: author
+      type: keyword
+      description: Detection author
+    - name: license
+      type: keyword
+      description: Detection license
+    - name: language
+      type: keyword
+      description: Detection rule language
+    - name: product
+      type: keyword
+      description: Product identifier
+    - name: service
+      type: keyword
+      description: Service type
+    - name: ruleset
+      type: keyword
+      description: Ruleset name
+    - name: tags
+      type: keyword
+      description: Detection tags
+    - name: isEnabled
+      type: boolean
+      description: Whether detection is enabled
+    - name: isReporting
+      type: boolean
+      description: Whether detection is reporting
+    - name: isCommunity
+      type: boolean
+      description: Whether detection is community-sourced
+    - name: createTime
+      type: date
+      description: Detection creation time
+    - name: userId
+      type: keyword
+      description: User ID that created the detection
+- name: quote
+  type: group
+  description: Anime quote data
+  fields:
+    - name: content
+      type: text
+      description: Quote content
+    - name: anime
+      type: keyword
+      description: Anime name
+    - name: character
+      type: keyword
+      description: Character name
+- name: error
+  type: text
+  description: Error message if API request failed
+- name: status_code
+  type: long
+  description: HTTP status code from API response

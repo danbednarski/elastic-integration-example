@@ -1,6 +1,43 @@
-# newer versions go on top
-- version: "0.0.1"
+- version: 0.1.3
   changes:
-    - description: Initial draft of the package
+    - description: "Fixed dataset name to use so-detection (with dash) to match SOC index naming convention"
+      type: bugfix
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.1.2
+  changes:
+    - description: "Fixed SOC detection index name to use so.detections (plural) instead of so.detection (singular)"
+      type: bugfix
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.1.1
+  changes:
+    - description: "Fixed SOC detection routing by changing dataset from vipre.pokemon_detections to so.detection"
+      type: bugfix
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+    - description: "Added all required SO detection fields (content, engine, author, license, language, product, service, ruleset, isEnabled, isReporting, isCommunity, createTime, userId)"
       type: enhancement
-      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.1.0
+  changes:
+    - description: "Major: Converted from httpjson to CEL (Common Expression Language) input type for Elastic Agent compatibility"
+      type: breaking-change
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.0.4
+  changes:
+    - description: Fixed dataset naming consistency for anime quotes
+      type: bugfix
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.0.3
+  changes:
+    - description: Switched to anime quote threat intelligence API
+      type: enhancement
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.0.2
+  changes:
+    - description: Added Pokemon threat intelligence detection rules
+      type: enhancement
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1
+- version: 0.0.1
+  changes:
+    - description: Initial release
+      type: enhancement
+      link: https://github.com/danbednarski/elastic-integration-example/pull/1

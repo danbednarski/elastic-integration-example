@@ -1,0 +1,28 @@
+title: Anime Quote Security Detections
+type: logs
+dataset: so-detection
+streams:
+  - input: cel
+    title: Anime Quote Threat Intelligence
+    description: Generate anime quote-based security detection rules using CEL
+    enabled: true
+    template_path: stream.yml.hbs
+    vars:
+      - name: interval
+        type: text
+        title: Check Interval
+        default: "60s"
+        description: How often to fetch anime quotes
+        required: true
+      - name: api_timeout
+        type: text
+        title: API Timeout
+        default: "30s"
+        description: Timeout for anime API calls
+        required: true
+      - name: api_url
+        type: text
+        title: API URL
+        default: "https://api.animechan.io/v1/quotes/random"
+        description: Anime quotes API endpoint
+        required: true

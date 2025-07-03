@@ -1,0 +1,98 @@
+config_version: 2
+interval: {{interval}}
+resource.url: {{api_url}}
+{{#if proxy_url}}
+resource.proxy_url: {{proxy_url}}
+{{/if}}
+{{#if ssl}}
+resource.ssl: {{ssl}}
+{{/if}}
+{{#if http_client_timeout}}
+resource.timeout: {{http_client_timeout}}
+{{/if}}
+
+state:
+  api_url: {{api_url}}
+  api_timeout: {{api_timeout}}
+
+program: |-
+  request("GET", state.api_url).with({
+    "timeout": duration(state.api_timeout)
+  }).do_request().as(resp,
+    resp.StatusCode == 200 ?
+      bytes(resp.Body).decode_json().as(quote_data, {
+        "events": [{
+          "message": {
+            "@timestamp": now(),
+            "so_kind": "detection",
+            "so_operation": "create", 
+            "so_audit_doc_id": "anime-" + string(timestamp(now())) + "-detection",
+            "so_detection": {
+              "publicId": "anime-" + string(timestamp(now())),
+              "title": "Anime Quote Threat Detection: " + (has(quote_data.character) ? quote_data.character.name : "Unknown Character"),
+              "description": "Threat intelligence detection based on anime quote analysis. Character: " + (has(quote_data.character) ? quote_data.character.name : "Unknown") + ". Quote: " + quote_data.quote,
+              "content": "alert tcp any any -> any any (msg:\"Anime Quote Threat: " + (has(quote_data.character) ? quote_data.character.name : "Unknown") + "\"; content:\"" + quote_data.quote + "\"; classtype:anime-threat; sid:" + string(timestamp(now())) + "; rev:1; metadata:anime_character " + (has(quote_data.character) ? quote_data.character.name : "unknown") + ", source anime_api;)",
+              "engine": "anime-threat-engine",
+              "category": "anime-threat",
+              "severity": "medium",
+              "author": "Anime Threat Intel Team",
+              "license": "MIT",
+              "language": "suricata",
+              "product": "anime-ids",
+              "service": "network",
+              "ruleset": "anime-community-rules",
+              "tags": ["anime", "threat-intel", "custom-detection", (has(quote_data.character) ? quote_data.character.name : "unknown")],
+              "isEnabled": true,
+              "isReporting": true,
+              "isCommunity": true,
+              "createTime": now().format("2006-01-02T15:04:05.000Z"),
+              "userId": "anime-integration-system"
+            },
+            "quote": {
+              "text": quote_data.quote,
+              "character": has(quote_data.character) ? quote_data.character.name : "Unknown",
+              "anime": has(quote_data.anime) ? quote_data.anime.name : "Unknown"
+            },
+            "threat": {
+              "feed": {
+                "name": "anime-quotes-api",
+                "description": "Anime Quote Threat Intelligence Feed"
+              },
+              "indicator": {
+                "type": "quote",
+                "value": quote_data.quote
+              }
+            }
+          }
+        }],
+        "want_more": false
+      })
+    :
+      {
+        "events": [{
+          "error": {
+            "code": string(resp.StatusCode),
+            "id": string(resp.Status),
+            "message": "Failed to fetch anime quote: " + (
+              size(resp.Body) != 0 ?
+                string(resp.Body)
+              :
+                string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+            )
+          }
+        }],
+        "want_more": false
+      }
+  )
+
+tags:
+{{#each tags as |tag|}}
+  - {{tag}}
+{{/each}}
+{{#contains "forwarded" tags}}
+publisher_pipeline.disable_host: true
+{{/contains}}
+{{#if processors}}
+processors:
+{{processors}}
+{{/if}}
