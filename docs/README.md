@@ -1,6 +1,6 @@
 # Example API Integration
 
-This is a generic integration for interacting with APIs.
+This is a generic integration for interacting with APIs, originally based on Elastic's built-in [Sophos Central package](https://github.com/elastic/integrations/tree/main/packages/sophos_central).
 
 ```bash
 $ git clone https://github.com/danbednarski/elastic-integration-example.git
@@ -33,9 +33,7 @@ When selecting which host to install the agent on, make sure to specify the fiel
 
 <img width="806" alt="Screenshot 2025-07-05 at 11 37 35 PM" src="https://github.com/user-attachments/assets/22a1e769-5cff-43d0-abca-e5971b74341a" />
 
-Testing with custom API (localhost.run)
-
-Seeing the request come into 
+To verify that it's working, you'll want to check the index `sophos_central.event` on the manager's Kibana dev console. (Will change this so we create our own index)
 
 #### Todo:
 - [x] Connect to operational API
