@@ -38,11 +38,11 @@ To verify that it's working, you'll want to check the index `sophos_central.even
 #### Todo:
 - [x] Connect to operational api
 - [x] Engrave into elasticsearch
-- [ ] Switch to free Pokemon API
+- [ ] Switch to free Pokemon api
 - [ ] Remove leftover cruft data  
-- [ ] Switch to proper VIPRE API
+- [ ] Switch to proper vipre api
 - [ ] Clean up data after ingest
-- [ ] Autodeploy package via API
+- [ ] Autodeploy package via api
 
 אשרי הגפרור שנשרף והצית להבות,  
 אשרי הלהבה שבערה בסתרי לבבות.  
