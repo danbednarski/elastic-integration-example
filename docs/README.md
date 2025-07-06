@@ -42,6 +42,7 @@ To verify that it's working, you'll want to check the index `sophos_central.even
 - [ ] Remove leftover cruft data  
 - [ ] Switch to proper VIPRE API
 - [ ] Clean up data after ingest
+- [ ] Autodeploy package via API
 
 אשרי הגפרור שנשרף והצית להבות,  
 אשרי הלהבה שבערה בסתרי לבבות.  
