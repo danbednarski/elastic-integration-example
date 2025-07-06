@@ -36,13 +36,13 @@ When selecting which host to install the agent on, make sure to specify the fiel
 To verify that it's working, you'll want to check the index `sophos_central.event` on the manager's Kibana dev console. (Will change this so we create our own index)
 
 #### Todo:
-- [x] Connect to operational api
-- [x] Engrave into elasticsearch
-- [ ] Switch to free pokemon api
+- [x] Connect to operational API
+- [x] Engrave into ElasticSearch
+- [ ] Switch to free Pokemon API
 - [ ] Remove leftover cruft data  
-- [ ] Switch to proper vipre api
+- [ ] Switch to proper VIPRE API
 - [ ] Clean up data after ingest
-- [ ] Autodeploy package via api
+- [ ] Autodeploy package via API
 
 אשרי הגפרור שנשרף והצית להבות,  
 אשרי הלהבה שבערה בסתרי לבבות.  
