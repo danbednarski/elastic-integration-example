@@ -1,12 +1,15 @@
 # Example API Integration
 
+This is a generic integration for interacting with APIs.
+
 ```bash
 $ git clone https://github.com/danbednarski/elastic-integration-example.git
 $ cd elastic-integration-example
 $ elastic-package build
+Package built: /home/administrator/elastic-integration-example/integrations/build/packages/name-version.zip
 ```
 
-This will create some-name-version.zip
+Currently, the API we're calling relies on a temporary domain from localhost.run. This is no longer necessary now that we've got HTTP requests working, and I'll switch to a stable, free, third party API on Monday. Anyway, take the ZIP file from the outputThis will create a file named alike to `name-version.zip`.
 
 ```bash
 $ scp some-name-version.zip <manager-host-ip>:/home/otm
@@ -18,11 +21,17 @@ $ ssh otm@<manager-host-ip>
   -H 'kbn-xsrf: true' \
   http://127.0.0.1:5601/api/fleet/epm/packages \
   -u 'so_elastic:<elastic_password>' \
-  --data-binary @sophos_central-1.19.0.zip
-{"items":[{"id":"logs-sophos_central.event-1.19.0","type":"ingest_pipeline"},{"id":"logs-sophos_central.event","type":"index_template"},{"id":"logs-sophos_central.event@package","type":"component_template"},{"id":"logs-sophos_central.event@custom","type":"component_template"}],"response":[{"id":"logs-sophos_central.event-1.19.0","type":"ingest_pipeline"},{"id":"logs-sophos_central.event","type":"index_template"},{"id":"logs-sophos_central.event@package","type":"component_template"},{"id":"logs-sophos_central.event@custom","type":"component_template"}],"_meta":{"install_source":"upload"}}
+  --data-binary @<name-version.zip>
+{"items":[{"id":"logs-name.event-version","type":"ingest_pipeline"},{"id":"logs-name.event","type":"index_template"},{"id":"logs-name.event@package","type":"component_template"},{"id":"logs-name.event@custom","type":"component_template"}],"response":[{"id":"logs-name.event-version","type":"ingest_pipeline"},{"id":"logs-name.event","type":"index_template"},{"id":"logs-name.event@package","type":"component_template"},{"id":"logs-name.event@custom","type":"component_template"}],"_meta":{"install_source":"upload"}}
 ```
 
-The password comes from ``
+At this point, the package will appear as available to install in the Kibana UI:
+
+_(lol later I'll add a screenie here i promise)_
+
+When selecting which host to install the agent on, make sure to specify the field node:
+
+<img width="806" alt="Screenshot 2025-07-05 at 11 37 35 PM" src="https://github.com/user-attachments/assets/22a1e769-5cff-43d0-abca-e5971b74341a" />
 
 Testing with custom API (localhost.run)
 
@@ -31,6 +40,8 @@ Seeing the request come into
 #### Todo:
 - [x] Connect to operational API
 - [x] Engrave into Elasticsearch
+- [ ] Switch to free Pokemon API
+- [ ] Remove leftover cruft data  
 - [ ] Switch to proper VIPRE API
 - [ ] Clean up data after ingest
 
