@@ -1,7 +1,8 @@
 # Example API Integration
 
-```
-$ git clone (this)
+```bash
+$ git clone https://github.com/danbednarski/elastic-integration-example.git
+$ cd elastic-integration-example
 $ elastic-package build
 ```
 
