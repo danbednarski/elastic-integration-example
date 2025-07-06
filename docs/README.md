@@ -5,9 +5,10 @@ Build & install
 Testing with custom API (localhost.run)
 
 Todo
-- [ ] Connect to operational API
-- [ ] Engrave into Elasticsearch
-- [ ] 
+- [x] Connect to operational API
+- [x] Engrave into Elasticsearch
+- [ ] Switch to proper VIPRE API
+- [ ] Clean up data after ingest
 
 אשרי הגפרור שנשרף והצית להבות,  
 אשרי הלהבה שבערה בסתרי לבבות.  
