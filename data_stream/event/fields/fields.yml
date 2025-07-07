@@ -1,4 +1,4 @@
-- name: sophos_central.event
+- name: api_integration_example
   type: group
   fields:
     - name: amsi_threat_data

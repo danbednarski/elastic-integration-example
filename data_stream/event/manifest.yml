@@ -50,7 +50,7 @@ streams:
         required: true
         show_user: false
         title: Preserve duplicate custom fields
-        description: Preserve sophos_central.event fields that were copied to Elastic Common Schema (ECS) fields.
+        description: Preserve api_integration_example fields that were copied to Elastic Common Schema (ECS) fields.
         type: bool
         multi: false
         default: false
@@ -62,7 +62,7 @@ streams:
         show_user: false
         default:
           - forwarded
-          - sophos_central-event
+          - api_integration-event
       - name: processors
         type: yaml
         title: Processors

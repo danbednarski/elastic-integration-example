@@ -1,5 +1,5 @@
 input: httpjson
-service: sophos_central
+service: api_integration
 vars:
   request_url: http://{{Hostname}}:{{Port}}
   token_url: http://{{Hostname}}:{{Port}}

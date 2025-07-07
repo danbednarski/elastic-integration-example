@@ -10,11 +10,11 @@
 - name: event.module
   type: constant_keyword
   description: Event module.
-  value: sophos_central
+  value: api_integration
 - name: event.dataset
   type: constant_keyword
   description: Event dataset.
-  value: sophos_central.event
+  value: api_integration_example
 - name: '@timestamp'
   type: date
   description: Event timestamp.

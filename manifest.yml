@@ -1,5 +1,5 @@
 format_version: "3.0.2"
-name: sophos_central
+name: api_integration
 title: Simple API Integration
 version: "1.19.0"
 description: This Elastic integration collects logs from a simple API endpoint with Elastic Agent.
@@ -22,11 +22,11 @@ screenshots:
     type: image/png
 icons:
   - src: /img/sophos_central_logo.svg
-    title: Simple API logo
+    title: Sophos Central logo
     size: 108x18
     type: image/svg+xml
 policy_templates:
-  - name: sophos_central
+  - name: api_integration
     title: Simple API logs
     description: Collect logs using HTTP JSON from a simple API.
     inputs:

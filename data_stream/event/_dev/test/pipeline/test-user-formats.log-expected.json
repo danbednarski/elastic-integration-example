@@ -44,7 +44,7 @@
                     "81.2.69.192"
                 ]
             },
-            "sophos_central": {
+            "api_integration": {
                 "event": {
                     "amsi_threat_data": {
                         "parent_process": {
@@ -202,7 +202,7 @@
                     "81.2.69.192"
                 ]
             },
-            "sophos_central": {
+            "api_integration": {
                 "event": {
                     "amsi_threat_data": {
                         "parent_process": {
@@ -356,7 +356,7 @@
                     "81.2.69.192"
                 ]
             },
-            "sophos_central": {
+            "api_integration": {
                 "event": {
                     "amsi_threat_data": {
                         "parent_process": {
