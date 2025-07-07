@@ -18,7 +18,7 @@ streams:
         type: text
         title: Interval
         description: "Interval between two REST API calls. Valid time units are s, m, h."
-        default: 5m
+        default: 10s
         multi: false
         required: true
         show_user: true
@@ -29,7 +29,7 @@ streams:
         multi: false
         required: true
         show_user: true
-        default: 24h
+        default: 10s
       - name: batch_size
         type: integer
         title: Batch Size
