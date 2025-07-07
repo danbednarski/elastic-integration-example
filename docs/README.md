@@ -9,7 +9,7 @@ $ elastic-package build
 Package built: /home/administrator/elastic-integration-example/integrations/build/packages/name-version.zip
 ```
 
-Currently, the API we're calling relies on a temporary domain from localhost.run. This is no longer necessary now that we've got HTTP requests working, and I'll switch to a stable, free, third party API on Monday. Anyway, take the ZIP file from the outputThis will create a file named alike to `name-version.zip`.
+Currently, the API we're calling relies on a temporary domain from localhost.run. This is no longer necessary now that we've got HTTP requests working, and I'll switch to a stable, free, third party API on Monday. Anyway, take the ZIP file from the output.
 
 ```bash
 $ scp some-name-version.zip <manager-host-ip>:/home/otm
